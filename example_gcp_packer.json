@@ -1,0 +1,23 @@
+{
+    "builders": [
+      {
+        "type": "googlecompute",
+        "image_name":"",
+        "account_file": "",
+        "project_id": "",
+        "source_image_project_id":"", 
+        "source_image_family": "",
+        "ssh_username": "packer",
+        "zone": "us-east4-a",
+        "network_project_id": "",
+        "subnetwork": "",
+        "omit_external_ip": true,
+        "use_internal_ip": true,
+        "disk_size": 60,
+        "tags": [
+          
+        ]
+      }
+    ],
+    "sensitive-variables": ["devops_usr", "devops_secret"] 
+}
