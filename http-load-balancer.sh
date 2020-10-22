@@ -33,7 +33,8 @@ gcloud beta compute instance-templates create instance-template-1 \
 
 
 
-gcloud compute --project $PROJECT health-checks create tcp "healcth-check-1" \
+gcloud compute  health-checks create tcp "healcth-check-1" \
+--project $PROJECT \
 --timeout "5" \
 --check-interval "10" \
 --unhealthy-threshold "3" \
@@ -41,7 +42,8 @@ gcloud compute --project $PROJECT health-checks create tcp "healcth-check-1" \
 --port "80"
 
 
-gcloud beta compute --project=$PROJECT instance-groups managed create instance-group-1 \
+gcloud beta compute instance-groups managed create instance-group-1 \
+--project=$PROJECT \
 --base-instance-name=instance-group-1 \
 --template=instance-template-1 \
 --size=1 \
@@ -49,7 +51,8 @@ gcloud beta compute --project=$PROJECT instance-groups managed create instance-g
 --health-check=healcth-check-1 \
 --initial-delay=300
 
-gcloud beta compute --project $PROJECT instance-groups managed set-autoscaling "instance-group-1" \
+gcloud beta compute instance-groups managed set-autoscaling "instance-group-1" \
+--project=$PROJECT \
 --zone "us-central1-a" \
 --cool-down-period "60" \
 --max-num-replicas "3" \
